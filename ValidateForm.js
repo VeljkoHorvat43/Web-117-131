@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
 
 var checkForm = function (){
     var fName,lName,user,pw,rpw,email,selected,txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8;
-    var isValid,isValid1,isValid2,isValid3,isValid4,isValid5,isValid6,isValid7,isValid8 = true;
+    var isValid,isValid1,isValid2,isValid3,isValid4,isValid5,isValid6,isValid7,isValid8;
     fName=document.getElementById("firstName").value;
     if (fName===""){
         txt1="Ime je obavezno!";
@@ -15,6 +15,7 @@ var checkForm = function (){
     }
     else {
         txt1="";
+        isValid1 = true;
     }
     document.getElementById("e_name").innerHTML=txt1;
 
@@ -25,6 +26,7 @@ var checkForm = function (){
     }
     else {
         txt2="";
+        isValid2 = true;
     }
     document.getElementById("e_lname").innerHTML=txt2;
 
@@ -35,6 +37,7 @@ var checkForm = function (){
     }
     else {
         txt3="";
+        isValid3 = true;
     }
     document.getElementById("e_user").innerHTML=txt3;
 
@@ -45,6 +48,7 @@ var checkForm = function (){
     }
     else {
         txt4="";
+        isValid4 = true;
     }
     document.getElementById("e_pass").innerHTML=txt4;
 
@@ -55,6 +59,7 @@ var checkForm = function (){
     }
     else{
         txt5="";
+        isValid5 = true;
     }
     document.getElementById("e_rp").innerHTML=txt5;
 
@@ -66,6 +71,7 @@ var checkForm = function (){
     }
     else{
         txt6="";
+        isValid6 = true;
     }
     document.getElementById("e_mail").innerHTML=txt6;
 
@@ -75,22 +81,24 @@ var checkForm = function (){
     }
     else{
         txt7="";
+        isValid7 = true;
     }
     document.getElementById("e_mail").innerHTML=txt7;
 
-    selected=document.getElementById(city);
-    selectedText=selected.options[selected.selectedIndex].text;
-    if(selectedText==="Izaberite mesto"){
+    ddl=document.getElementById("city");
+    selectedText=ddl.options[ddl.selectedIndex].value;
+    if(selectedText===0){
         txt8="Mesto je obavezno!"
         isValid8 = false;
     }
     else{
         txt8="";
+        isValid8 = true;
     }
     document.getElementById("e_ddl").innerHTML=txt8;
 
-    isValid=isValid1 && isValid2 && isValid3 && isValid4 && isValid5 && isValid6 && isValid7;
+    isValid=isValid1 && isValid2 && isValid3 && isValid4 && isValid5 && isValid6 && isValid7 && isValid8;
     return isValid;
 
-
+    console.log(isValid.getValue());
 }
